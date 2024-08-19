@@ -61,7 +61,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${userList}" var="userVo">
+			<c:forEach items="${requestScope.userList}" var="userVo">
 				<tr>
 					<td>${userVo.no}</td>
 					<td>${userVo.name}</td>
@@ -69,12 +69,39 @@
 					<td>${userVo.password}</td>
 					<td>${userVo.gender}</td>
 				</tr>
-			</c:forEach>
-			
+			</c:forEach>	
 		</tbody>
 
 	</table>
+	<br><br>
+	
+		<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>패스워드</th>
+				<th>성별</th>
+				<th>state.index</th>
+				<th>state.count</th>
+			</tr>
+		</thead> 
+		<tbody>
+			<c:forEach items="${requestScope.userList}" var="userVo" begin="0" end="10" step="2" varStatus="state">
+				<tr>
+					<td>${userVo.no}</td>
+					<td>${userVo.name}</td>
+					<td>${userVo.email}</td>
+					<td>${userVo.password}</td>
+					<td>${userVo.gender}</td>
+					<td>${state.index}</td>
+					<td>${state.count}</td>
+				</tr>
+			</c:forEach>	
+		</tbody>
 
+	</table>
 
 
 
